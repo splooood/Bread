@@ -3,9 +3,13 @@ from discord.ext import commands
 import random
 import time
 from keep_alive import keep_alive
-import random
+
 
 client = commands.Bot(command_prefix = '?')
+
+client.remove_command('help')
+
+ratherapi = ['Stay up for 24 hours and get paid $10,000\n or \nStay up for 72 hours and get paid $20,000?', 'Punch your mom in the face for $1,000,000\n or \nPunch your grandma in the face for $10,000,000?', 'Live infinitely\n or \nadd 100 years to your life expectancy?']
 
 hexcode = ['0x0000FF', '0xFF0000', '0x00ff00']
 
@@ -86,8 +90,56 @@ async def unban(ctx, *, member):
 
 @client.command()
 async def warn(ctx, user: discord.User, *, message=None):
-    message = message or "You have been warned. \nReason: None specified"
-    await user.send(f'You have been warned. \nReason: {message}')
+  message = message or "You have been warned. \nReason: None specified"
+  await user.send(f'You have been warned. \nReason:{message}')
+  await ctx.send(f'User has been warned for {message}')
+
+@client.command()
+async def prefix(ctx):
+  await ctx.send("The prefix is '?'.")
+
+@client.command()
+async def add(ctx):
+  embed=discord.Embed(title="Add Me", url = 'https://ja2711733.wixsite.com/gigbit',  description="Click the link above to add Gigabit to your server.", color=discord.Color.blue())
+  embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
+  await ctx.send(embed=embed)
+
+@client.command()
+async def rng(ctx):
+    def check(msg):
+        return msg.author == ctx.author and msg.content.isdigit() and \
+               msg.channel == ctx.channel
+
+    await ctx.send("Type your first number.")
+    msg1 = await client.wait_for("message", check=check)
+    await ctx.send("Type your second number (Must be bigger than the first).")
+    msg2 = await client.wait_for("message", check=check)
+    x = int(msg1.content)
+    y = int(msg2.content)
+    if x < y:
+        value = random.randint(x,y)
+        await ctx.send(f"Randomly generated a number: {value}.")
+    else:
+        await ctx.send(":warning: Please ensure the first number is smaller than the second number.")
+
+@client.command()
+async def help(ctx):
+  embed=discord.Embed(title="Commands", description="Here are all of my commands.", color=discord.Color.blue())
+  embed.add_field(name="Testing/Fun Commands", value="Test commands such as ping, 8ball, etc.", inline=False)
+  embed.add_field(name="``?ping``", value="Returns the ping of the bot.", inline=True)
+  embed.add_field(name="``?8ball {question}``", value="Answers any question with a randomized answer.", inline=True)
+  embed.add_field(name="``?prefix``", value="Returns the prefix of the bot.", inline=True)
+  embed.add_field(name="``?add``", value="Returns with an embed containing an invite link for the bot.", inline=True)
+  embed.add_field(name="``?rng``", value="Returns with a random number. You choose what number parameters you want.", inline=True)
+  embed.add_field(name="Basic Admin", value="Basic admin commands such as purge, kick, etc.", inline=False)
+  embed.add_field(name="``?purge {amount}``", value="Deletes an amount of messages in a channel. Default amount set as '5'.", inline=True)
+  embed.add_field(name="``?kick {user} {reason}``", value="Kicks a user. Must specify a reason. Default reason set to 'None'.", inline=True)
+  embed.add_field(name="``?ban {user} {reason}``", value="Kicks a user. Must specify a reason. Default reason set to 'None'.", inline=True)
+  embed.add_field(name="``?unban {user}``", value="Unbans user from guild. No reason needs to be specified.", inline=True)
+  embed.add_field(name="``?warn {user} {reason}``", value="Warns a user via Direct Message. Reason needs to be specified. Default reason set to 'None'.", inline=True)
+  embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
+  embed.set_footer(text="Help command called by by: {}".format(ctx.author.display_name))
+  await ctx.send(embed=embed)
 
 keep_alive()
-client.run ('TOKEN')
+client.run ('ODM3ODY1MzU0MjcyNTcxNDI0.YIyw6w.e4E_HFmB1OgNspz8tIcpMHuwRCo')
