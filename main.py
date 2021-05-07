@@ -4,6 +4,7 @@ import random
 import time
 from keep_alive import keep_alive
 import requests
+from discord import Member
 
 client = commands.Bot(command_prefix = '?')
 
@@ -119,7 +120,16 @@ async def dogpics(ctx):
   embed=discord.Embed(title="Your Requested Dog Pic! <:dog:840345472333119538>", description="Here's your dog pic.", color=discord.Color.blue())
   embed.set_image(url=data['message'])
   await ctx.send(embed=embed)
-#data['file']
+
+@client.command()
+async def pfp(ctx, member: Member = None):
+  if not member:
+    member = ctx.author
+  embed=discord.Embed(title="We went to infinity and beyond and...", description="We fetched the profile picture you wanted!", color=discord.Color.blue())
+  embed.set_image(url=member.avatar_url)
+  embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
+  await ctx.send(embed=embed)
+
 @client.command()
 async def rng(ctx):
     def check(msg):
@@ -138,6 +148,8 @@ async def rng(ctx):
     else:
         await ctx.send(":warning: Please ensure the first number is smaller than the second number.")
 
+
+
 @client.command()
 async def help(ctx):
   embed=discord.Embed(title="Commands", description="Here are all of my commands.", color=discord.Color.blue())
@@ -150,6 +162,7 @@ async def help(ctx):
   embed.add_field(name="``?8ball {question}``", value="Answers any question with a randomized answer.", inline=True)
   embed.add_field(name="``?catpics``", value="Returns with a randomized cat picture! (Aww.)")
   embed.add_field(name="``?dogpics``", value="Returns with a randomized cat picture! (Aww.)")
+  embed.add_field(name="``?pfp {user}``", description="Fetched the specified user's profile picture and sends it. Default user set to messag author.", inline=True)
   embed.add_field(name="Basic Admin", value="Basic admin commands such as purge, kick, etc.", inline=False)
   embed.add_field(name="``?purge {amount}``", value="Deletes an amount of messages in a channel. Default amount set as '5'.", inline=True)
   embed.add_field(name="``?kick {user} {reason}``", value="Kicks a user. Must specify a reason. Default reason set to 'None'.", inline=True)
@@ -161,4 +174,4 @@ async def help(ctx):
   await ctx.send(embed=embed)
 
 keep_alive()
-client.run ('tokemon')
+client.run ('tokemon, gotta catch em all! tokemon!')
