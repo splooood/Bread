@@ -148,6 +148,14 @@ version = "5.1.0"
 
 [[package]]
 category = "main"
+description = "Discord RPC client written in Python"
+name = "pypresence"
+optional = false
+python-versions = ">=3.5"
+version = "4.2.0"
+
+[[package]]
+category = "main"
 description = "Backported and Experimental Type Hints for Python 3.5+"
 name = "typing-extensions"
 optional = false
@@ -179,7 +187,7 @@ idna = ">=2.0"
 multidict = ">=4.0"
 
 [metadata]
-content-hash = "67179e68f36674eb3800ba17a69b0effefe435e61bc749fad79640b809325a2e"
+content-hash = "b96ca545dbd4a6eb2c821e1ff80cc0e97c56a4862f947e4aa8e13fd3eabb036d"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -354,6 +362,10 @@ multidict = [
     {file = "multidict-5.1.0-cp39-cp39-win32.whl", hash = "sha256:fc13a9524bc18b6fb6e0dbec3533ba0496bbed167c56d0aabefd965584557d80"},
     {file = "multidict-5.1.0-cp39-cp39-win_amd64.whl", hash = "sha256:7df80d07818b385f3129180369079bd6934cf70469f99daaebfac89dca288359"},
     {file = "multidict-5.1.0.tar.gz", hash = "sha256:25b4e5f22d3a37ddf3effc0710ba692cfc792c2b9edfb9c05aefe823256e84d5"},
+]
+pypresence = [
+    {file = "pypresence-4.2.0-py2.py3-none-any.whl", hash = "sha256:f477a874c4164193e47f7144d726b0ba2fe69afa2807e3bd944efe4c4c137fac"},
+    {file = "pypresence-4.2.0.tar.gz", hash = "sha256:54618a18085d104aa063df8296dac95cf01b922ed8aab4b021f71718bb3f19b1"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.7.4.3-py2-none-any.whl", hash = "sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f"},

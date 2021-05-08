@@ -1,9 +1,5 @@
+# Update
+I have decided to ultimtely make this bot private. You are not allowed to add this bot into your server, however I will allow you to fork this bot's code so you can use it for your own personal uses.
+
 # Bread
-Bread is a simplistic, user-friendly Discord bot with simple Admin capabilities, such as Kick, Ban, Purge, Mute, and Warn.
-It also includes some test/fun commands such as 8-Ball or Ping.
-# How to setup Bread
-Setting up Bread is simple. Go to the Gigabit webpage here: https://ja2711733.wixsite.com/gigbit and click the "Add To Server" button.
-Bread will join your server. There's not much to do after that.
-# How to use Bread
-Just use the prefix '?'. If you want to change the prefix, you can just fork this repository and add whatever prefix you want.
-You can use '?help' to get a list of commands.
+Bread is an easy-to-use basic admin bot that I made for me and my friends. It has simple commands such as mute, kick, ban etc. You can fork this code for whatever personal uses you need.
