@@ -192,7 +192,6 @@ async def rng(ctx):
 @client.command()
 async def help(ctx):
   embed=discord.Embed(title="Commands", description="Here are all of my commands.", color=discord.Color.blue())
-  embed.add_field(value="Guide:\n {} - Not a required field\n () - Required field")
   embed.add_field(name="Testing Commands", value="Test commands such as ping, alivecheck,etc.", inline=False)
   embed.add_field(name="``?ping``", value="Returns the ping of the bot.", inline=False)
   embed.add_field(name="``?prefix``", value="Returns the prefix of the bot.", inline=True)
@@ -202,7 +201,8 @@ async def help(ctx):
   embed.add_field(name="``?8ball (question)``", value="Answers any question with a randomized answer.", inline=True)
   embed.add_field(name="``?catpics``", value="Returns with a randomized cat picture! (Aww.)")
   embed.add_field(name="``?dogpics``", value="Returns with a randomized cat picture! (Aww.)")
-  embed.add_field(name="``?pfp {user}``", description="Fetched the specified user's profile picture and sends it. Default user set to messag author.", inline=True)
+  embed.add_field(name="``?pfp {user}``", value="Fetched the specified user's profile picture and sends it. Default user set to messag author.", inline=True)
+  embed.add_field(name="``?coinflip``", value="Flips a coin. Returns with either heads or tails.", inline=True)
   embed.add_field(name="Basic Admin", value="Basic admin commands such as purge, kick, etc.", inline=False)
   embed.add_field(name="``?purge (amount)``", value="Deletes an amount of messages in a channel. Default amount set as '5'.", inline=True)
   embed.add_field(name="``?kick (user) {reason}``", value="Kicks a user. Must specify a reason. Default reason set to 'None'.", inline=True)
@@ -216,4 +216,4 @@ async def help(ctx):
   await ctx.send(embed=embed)
 
 keep_alive()
-client.run ('ODM3ODY1MzU0MjcyNTcxNDI0.YIyw6w.12SIyyMam_46bxCzJk1KZGqFAHA')
+client.run ("Tokemon, Gotta catch em' all! Tokemon!")
